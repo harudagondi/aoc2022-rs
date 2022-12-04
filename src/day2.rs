@@ -6,7 +6,7 @@ enum Hand {
 }
 
 impl Hand {
-    fn points(&self) -> u32 {
+    fn points(self) -> u32 {
         match self {
             Hand::Rock => 1,
             Hand::Paper => 2,
@@ -23,7 +23,7 @@ enum Outcome {
 }
 
 impl Outcome {
-    fn points(&self) -> u32 {
+    fn points(self) -> u32 {
         match self {
             Outcome::Win => 6,
             Outcome::Draw => 3,
@@ -67,15 +67,15 @@ fn convert_to_hand(c: char) -> Hand {
 
 fn battle_outcome(opponent: Hand, player: Hand) -> Outcome {
     match (opponent, player) {
-        (Hand::Rock, Hand::Rock) => Outcome::Draw,
-        (Hand::Rock, Hand::Paper) => Outcome::Win,
-        (Hand::Rock, Hand::Scissors) => Outcome::Loss,
-        (Hand::Paper, Hand::Rock) => Outcome::Loss,
-        (Hand::Paper, Hand::Paper) => Outcome::Draw,
-        (Hand::Paper, Hand::Scissors) => Outcome::Win,
-        (Hand::Scissors, Hand::Rock) => Outcome::Win,
-        (Hand::Scissors, Hand::Paper) => Outcome::Loss,
-        (Hand::Scissors, Hand::Scissors) => Outcome::Draw,
+        (Hand::Rock, Hand::Paper)
+        | (Hand::Paper, Hand::Scissors)
+        | (Hand::Scissors, Hand::Rock) => Outcome::Win,
+        (Hand::Rock, Hand::Scissors)
+        | (Hand::Paper, Hand::Rock)
+        | (Hand::Scissors, Hand::Paper) => Outcome::Loss,
+        (Hand::Paper, Hand::Paper)
+        | (Hand::Rock, Hand::Rock)
+        | (Hand::Scissors, Hand::Scissors) => Outcome::Draw,
     }
 }
 

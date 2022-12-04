@@ -27,7 +27,7 @@ pub fn solve_part2(input: &str) -> u32 {
     // Therefore, we convert this into a Vec and sort it.
     let mut vec: Vec<u32> = parse(input).collect();
     // This sorts from smallest to largest.
-    vec.sort();
+    vec.sort_unstable();
     // To find the three elves with the largest amount of calories,
     // we reverse the iterator to take the first three numbers,
     // and then sum them.
