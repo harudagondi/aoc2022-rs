@@ -11,17 +11,17 @@ fn main() {
     const DAY3: &str = include_str!("../day3.txt");
     const DAY4: &str = include_str!("../day4.txt");
     print_title("Day 1 - Counting Calories");
-    println!("{}", day1::solve_part1(DAY1));
-    println!("{}", day1::solve_part2(DAY1));
+    dbg!(day1::solve_part1(DAY1));
+    dbg!(day1::solve_part2(DAY1));
     print_title("Day 2: Rock Paper Scissors");
-    println!("{}", day2::solve_part1(DAY2));
-    println!("{}", day2::solve_part2(DAY2));
+    dbg!(day2::solve_part1(DAY2));
+    dbg!(day2::solve_part2(DAY2));
     print_title("Day 3: Rucksack Reorganization");
-    println!("{}", day3::solve_part1(DAY3));
-    println!("{}", day3::solve_part2(DAY3));
+    dbg!(day3::solve_part1(DAY3));
+    dbg!(day3::solve_part2(DAY3));
     print_title("Day 4: Camp Cleanup");
-    println!("{}", day4::solve_part1(DAY4));
-    println!("{}", day4::solve_part2(DAY4));
+    dbg!(day4::solve_part1(DAY4));
+    dbg!(day4::solve_part2(DAY4));
 }
 
 fn print_title(title: &str) {
