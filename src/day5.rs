@@ -49,12 +49,10 @@ pub fn parse(input: &str) -> (Stacks, Steps) {
 
     let mut stacks = Stacks(vec![Stack(Vec::new()); number_of_stacks]);
 
-    for stack in stacks_lines.map(|line| {
-        (0..number_of_stacks)
-            .map(|n| line.chars().nth(1 + n * 4).unwrap())
-            .collect_vec()
-    }) {
-        for (index, crate_) in stack.into_iter().enumerate() {
+    for stack in
+        stacks_lines.map(|line| (0..number_of_stacks).map(|n| line.chars().nth(1 + n * 4).unwrap()))
+    {
+        for (index, crate_) in stack.enumerate() {
             if !crate_.is_whitespace() {
                 stacks.0[index].0.push(crate_);
             }
