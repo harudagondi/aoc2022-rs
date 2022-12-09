@@ -7,6 +7,7 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
 fn main() {
     const DAY1: &str = include_str!("../day1.txt");
@@ -16,6 +17,7 @@ fn main() {
     const DAY5: &str = include_str!("../day5.txt");
     const DAY6: &str = include_str!("../day6.txt");
     const DAY7: &str = include_str!("../day7.txt");
+    const DAY8: &str = include_str!("../day8.txt");
     print_title("Day 1 - Counting Calories");
     dbg!(day1::solve_part1(DAY1));
     dbg!(day1::solve_part2(DAY1));
@@ -37,6 +39,9 @@ fn main() {
     print_title("Day 7: No Space Left On Device");
     dbg!(day7::solve_part1(DAY7));
     dbg!(day7::solve_part2(DAY7));
+    print_title("Day 8: Treetop Tree House");
+    dbg!(day8::solve_part1(DAY8));
+    dbg!(day8::solve_part2(DAY8));
 }
 
 fn print_title(title: &str) {
