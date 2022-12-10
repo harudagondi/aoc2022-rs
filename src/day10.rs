@@ -96,7 +96,6 @@ pub fn solve_part2(input: &str) -> String {
         .into_iter()
         .take(40 * 6)
         .sorted_by(|a, b| a.0.cmp(&b.0))
-        .collect_vec()
     {
         let cycle: i32 = cycle.try_into().unwrap();
         let cycle = cycle - 1;
