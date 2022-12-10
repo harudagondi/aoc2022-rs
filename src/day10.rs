@@ -29,7 +29,6 @@ struct Clock {
     cycle: u32,
     commands: VecDeque<Command>,
     register: i32,
-    memorized_cycles: HashMap<u32, i32>,
 }
 
 impl fmt::Debug for Clock {
@@ -38,7 +37,6 @@ impl fmt::Debug for Clock {
             .field("cycle", &self.cycle)
             .field("next_command", &self.commands.iter().next())
             .field("register", &self.register)
-            .field("memorized_cycles", &self.memorized_cycles)
             .finish()
     }
 }
@@ -55,7 +53,6 @@ impl Clock {
                 })
                 .collect(),
             register: 1,
-            memorized_cycles: HashMap::new(),
         }
     }
 
