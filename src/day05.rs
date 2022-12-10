@@ -99,7 +99,7 @@ pub fn solve_part2(input: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::day5::{solve_part1, solve_part2};
+    use crate::day05::{solve_part1, solve_part2};
 
     const INPUT: &str = "    [D]    
 [N] [C]    

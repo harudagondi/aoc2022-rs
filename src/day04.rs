@@ -41,7 +41,7 @@ pub fn solve_part2(input: &str) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use crate::day4::{solve_part1, solve_part2};
+    use crate::day04::{solve_part1, solve_part2};
 
     const INPUT: &str = "2-4,6-8
 2-3,4-5

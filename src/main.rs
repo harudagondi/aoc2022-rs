@@ -1,14 +1,15 @@
 #![warn(clippy::pedantic)]
 
-mod day1;
-mod day2;
-mod day3;
-mod day4;
-mod day5;
-mod day6;
-mod day7;
-mod day8;
-mod day9;
+mod day01;
+mod day02;
+mod day03;
+mod day04;
+mod day05;
+mod day06;
+mod day07;
+mod day08;
+mod day09;
+mod day10;
 
 fn main() {
     const DAY1: &str = include_str!("../day1.txt");
@@ -20,33 +21,37 @@ fn main() {
     const DAY7: &str = include_str!("../day7.txt");
     const DAY8: &str = include_str!("../day8.txt");
     const DAY9: &str = include_str!("../day9.txt");
+    const DAY10: &str = include_str!("../day10.txt");
     print_title("Day 1 - Counting Calories");
-    dbg!(day1::solve_part1(DAY1));
-    dbg!(day1::solve_part2(DAY1));
+    dbg!(day01::solve_part1(DAY1));
+    dbg!(day01::solve_part2(DAY1));
     print_title("Day 2: Rock Paper Scissors");
-    dbg!(day2::solve_part1(DAY2));
-    dbg!(day2::solve_part2(DAY2));
+    dbg!(day02::solve_part1(DAY2));
+    dbg!(day02::solve_part2(DAY2));
     print_title("Day 3: Rucksack Reorganization");
-    dbg!(day3::solve_part1(DAY3));
-    dbg!(day3::solve_part2(DAY3));
+    dbg!(day03::solve_part1(DAY3));
+    dbg!(day03::solve_part2(DAY3));
     print_title("Day 4: Camp Cleanup");
-    dbg!(day4::solve_part1(DAY4));
-    dbg!(day4::solve_part2(DAY4));
+    dbg!(day04::solve_part1(DAY4));
+    dbg!(day04::solve_part2(DAY4));
     print_title("Day 5: Supply Stacks");
-    dbg!(day5::solve_part1(DAY5));
-    dbg!(day5::solve_part2(DAY5));
+    dbg!(day05::solve_part1(DAY5));
+    dbg!(day05::solve_part2(DAY5));
     print_title("Day 6: Tuning Trouble");
-    dbg!(day6::solve_part1(DAY6));
-    dbg!(day6::solve_part2(DAY6));
+    dbg!(day06::solve_part1(DAY6));
+    dbg!(day06::solve_part2(DAY6));
     print_title("Day 7: No Space Left On Device");
-    dbg!(day7::solve_part1(DAY7));
-    dbg!(day7::solve_part2(DAY7));
+    dbg!(day07::solve_part1(DAY7));
+    dbg!(day07::solve_part2(DAY7));
     print_title("Day 8: Treetop Tree House");
-    dbg!(day8::solve_part1(DAY8));
-    dbg!(day8::solve_part2(DAY8));
+    dbg!(day08::solve_part1(DAY8));
+    dbg!(day08::solve_part2(DAY8));
     print_title("Day 9: Rope Bridge");
-    dbg!(day9::solve_part1(DAY9));
-    dbg!(day9::solve_part2(DAY9));
+    dbg!(day09::solve_part1(DAY9));
+    dbg!(day09::solve_part2(DAY9));
+    print_title("Day 10: Cathode-Ray Tube");
+    dbg!(day10::solve_part1(DAY10));
+    println!("{}", day10::solve_part2(DAY10));
 }
 
 fn print_title(title: &str) {

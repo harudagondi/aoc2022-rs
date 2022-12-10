@@ -181,7 +181,7 @@ pub fn solve_part2(input: &str) -> u32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::day7::{parse, solve_part1, solve_part2};
+    use crate::day07::{parse, solve_part1, solve_part2};
 
     const INPUT: &str = "$ cd /
 $ ls

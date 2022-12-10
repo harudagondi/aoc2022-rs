@@ -51,7 +51,7 @@ fn priority(c: char) -> u32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::day3::{priority, solve_part1, solve_part2};
+    use crate::day03::{priority, solve_part1, solve_part2};
 
     const INPUT: &str = "vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL

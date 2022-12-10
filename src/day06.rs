@@ -64,7 +64,7 @@ pub fn solve_part2(input: &str) -> u32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::day6::{solve_part1, solve_part2};
+    use crate::day06::{solve_part1, solve_part2};
 
     const INPUT1: &str = "mjqjpqmgbljsphdztnvjfqwrcgsmlb";
     const INPUT2: &str = "bvwbjplbgvbhsrlpgdmjqwftvncz";

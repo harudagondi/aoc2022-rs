@@ -106,7 +106,7 @@ fn get_player_hand(opponent: Hand, outcome: Outcome) -> Hand {
 
 #[cfg(test)]
 mod tests {
-    use crate::day2::{solve_part1, solve_part2};
+    use crate::day02::{solve_part1, solve_part2};
 
     const INPUT: &str = "A Y
 B X
