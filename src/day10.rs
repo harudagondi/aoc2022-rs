@@ -131,23 +131,23 @@ mod tests {
 
     use super::{parse, Clock};
 
-    const INPUT_SMALL: &str = "noop
-addx 3
-addx -5";
+    //     const INPUT_SMALL: &str = "noop
+    // addx 3
+    // addx -5";
 
-    #[test]
-    fn small() {
-        let mut clock = Clock::new(parse(INPUT_SMALL))
-            .run()
-            .into_iter()
-            .sorted_by(|a, b| Ord::cmp(&a.0, &b.0));
-        assert_eq!(clock.next(), Some((1, 1)));
-        assert_eq!(clock.next(), Some((2, 1)));
-        assert_eq!(clock.next(), Some((3, 4)));
-        assert_eq!(clock.next(), Some((4, 4)));
-        assert_eq!(clock.next(), Some((5, -1)));
-        assert_eq!(clock.next(), None);
-    }
+    // #[test]
+    // fn small() {
+    //     let mut clock = Clock::new(parse(INPUT_SMALL))
+    //         .run()
+    //         .into_iter()
+    //         .sorted_by(|a, b| Ord::cmp(&a.0, &b.0));
+    //     assert_eq!(clock.next(), Some((1, 1)));
+    //     assert_eq!(clock.next(), Some((2, 1)));
+    //     assert_eq!(clock.next(), Some((3, 4)));
+    //     assert_eq!(clock.next(), Some((4, 4)));
+    //     assert_eq!(clock.next(), Some((5, -1)));
+    //     assert_eq!(clock.next(), None);
+    // }
 
     const INPUT: &str = "addx 15
 addx -11
