@@ -110,8 +110,7 @@ impl<const N: usize> Interpreter<N> {
         move_tail_inner(&mut self.head, &mut self.tail[0]);
 
         for n in 0..self.tail.len() - 1 {
-            let (head, tail) = self.tail[n..].split_first_mut().unwrap();
-            let (tail, _) = tail.split_first_mut().unwrap();
+            let [head, tail, ..] = &mut self.tail[n..] else { unreachable!() };
             move_tail_inner(head, tail);
         }
     }
