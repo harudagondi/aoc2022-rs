@@ -8,7 +8,7 @@ struct Coordinate {
 
 impl fmt::Debug for Coordinate {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        write!(f, "({}, {})", self.x, self.y)
+        f.debug_tuple("").field(&self.x).field(&self.y).finish()
     }
 }
 
