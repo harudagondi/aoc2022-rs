@@ -1,4 +1,4 @@
-use std::{fmt, str::FromStr};
+use std::{fmt, ops::Index, str::FromStr};
 
 use pathfinding::prelude::bfs;
 
@@ -62,13 +62,17 @@ impl Coordinate {
     }
 }
 
-impl Map {
-    fn index(&self, coordinate: Coordinate) -> &Point {
-        &self.buffer[coordinate.to_index(self.width)]
-    }
+impl Index<Coordinate> for Map {
+    type Output = Point;
 
+    fn index(&self, index: Coordinate) -> &Self::Output {
+        &self.buffer[index.to_index(self.width)]
+    }
+}
+
+impl Map {
     fn successors(&self, coordinate: Coordinate) -> Vec<Coordinate> {
-        let point = self.index(coordinate);
+        let point = self[coordinate];
         let neighbors = [
             Coordinate {
                 x: coordinate.x.saturating_sub(1).clamp(0, self.width - 1),
@@ -89,9 +93,7 @@ impl Map {
         ];
         neighbors
             .into_iter()
-            .filter(|coordinate| {
-                (..=1).contains(&(self.index(*coordinate).level() - point.level()))
-            })
+            .filter(|&coordinate| (..=1).contains(&(self[coordinate].level() - point.level())))
             .collect()
     }
 
