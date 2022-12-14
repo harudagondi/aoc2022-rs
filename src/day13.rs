@@ -27,28 +27,7 @@ impl PartialEq for Packets {
 
 impl PartialOrd for Packets {
     fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-        match (self.clone(), other.clone()) {
-            (Packets::Array(mut left), Packets::Array(mut right)) => {
-                match (left.pop_front(), right.pop_front()) {
-                    (None, None) => Some(std::cmp::Ordering::Equal),
-                    (None, Some(_)) => Some(std::cmp::Ordering::Less),
-                    (Some(_), None) => Some(std::cmp::Ordering::Greater),
-                    (Some(l), Some(r)) => match l.partial_cmp(&r) {
-                        Some(std::cmp::Ordering::Equal) => {
-                            Packets::Array(left).partial_cmp(&Packets::Array(right))
-                        }
-                        ord => ord,
-                    },
-                }
-            }
-            (left @ Packets::Array(_), right @ Packets::Number(_)) => {
-                left.partial_cmp(&Packets::Array(VecDeque::from([right])))
-            }
-            (left @ Packets::Number(_), right @ Packets::Array(_)) => {
-                Packets::Array(VecDeque::from([left])).partial_cmp(&right)
-            }
-            (Packets::Number(left), Packets::Number(right)) => left.partial_cmp(&right),
-        }
+        Some(self.cmp(other))
     }
 }
 
@@ -56,9 +35,27 @@ impl Eq for Packets {}
 
 impl Ord for Packets {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-        match self.partial_cmp(other) {
-            Some(ord) => ord,
-            None => unreachable!(),
+        match (self.clone(), other.clone()) {
+            (Packets::Array(mut left), Packets::Array(mut right)) => {
+                match (left.pop_front(), right.pop_front()) {
+                    (None, None) => std::cmp::Ordering::Equal,
+                    (None, Some(_)) => std::cmp::Ordering::Less,
+                    (Some(_), None) => std::cmp::Ordering::Greater,
+                    (Some(l), Some(r)) => match l.cmp(&r) {
+                        std::cmp::Ordering::Equal => {
+                            Packets::Array(left).cmp(&Packets::Array(right))
+                        }
+                        ord => ord,
+                    },
+                }
+            }
+            (left @ Packets::Array(_), right @ Packets::Number(_)) => {
+                left.cmp(&Packets::Array(VecDeque::from([right])))
+            }
+            (left @ Packets::Number(_), right @ Packets::Array(_)) => {
+                Packets::Array(VecDeque::from([left])).cmp(&right)
+            }
+            (Packets::Number(left), Packets::Number(right)) => left.cmp(&right),
         }
     }
 }
